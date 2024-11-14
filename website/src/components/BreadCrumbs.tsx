@@ -34,7 +34,8 @@ const BreadCrumbs = ({separator, containerClasses, listClasses, activeClasses, c
                         href = '/dashboard/worker-job-list';
                     }
                     let itemClasses = paths === href ? `${listClasses} ${activeClasses}` : listClasses
-                    let itemLink = capitalizeLinks ? link[0].toUpperCase() + link.slice(1, link.length) : link
+                    let itemLink = capitalizeLinks ? link[0].toUpperCase() + link.slice(1, link.length).replace(/-/g, ' ') : link.replace(/-/g, ' ')
+                    console.log(itemLink, 'ITEM LINK')
                     return (
                         <React.Fragment key={index}>
                             <li className={index === row.length - 1 ? itemClasses : `ml-0 ${itemClasses}`} >
