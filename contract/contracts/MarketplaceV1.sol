@@ -682,6 +682,7 @@ contract MarketplaceV1 is OwnableUpgradeable, PausableUpgradeable {
             );
 
             job.escrowId = unicrow.pay(
+                address(this),
                 escrowInput,
                 job.roles.arbitrator,
                 marketplaceData.getArbitratorFee(job.roles.arbitrator)
@@ -740,6 +741,7 @@ contract MarketplaceV1 is OwnableUpgradeable, PausableUpgradeable {
         );
 
         job.escrowId = unicrow.pay(
+            address(this),
             escrowInput,
             job.roles.arbitrator,
             marketplaceData.getArbitratorFee(job.roles.arbitrator)
